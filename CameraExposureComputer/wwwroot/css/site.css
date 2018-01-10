@@ -3,6 +3,19 @@
     padding-bottom: 20px;
 }
 
+label{
+    display: inline-block;
+    float: left;
+    width:300px;
+
+   
+}
+
+input{
+    display: inline-block;
+    float:right;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
