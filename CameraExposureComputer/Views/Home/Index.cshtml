@@ -4,35 +4,120 @@
 @{
     ViewData["Title"] = "Camera Exposure Computer";
 }
+<link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+<style>
+    table {
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
+
+    /* DivTable.com */
+    .divTable {
+        display: table;
+        width: 100%;
+    }
+
+    .divTableRow {
+        display: table-row;
+    }
+
+    .divTableHeading {
+        background-color: #EEE;
+        display: table-header-group;
+    }
+
+    .divTableCell, .divTableHead {
+        border: 1px solid #999999;
+        display: table-cell;
+        padding: 3px 10px;
+    }
+
+    .divTableHeading {
+        background-color: #EEE;
+        display: table-header-group;
+        font-weight: bold;
+    }
+
+    .divTableFoot {
+        background-color: #EEE;
+        display: table-footer-group;
+        font-weight: bold;
+    }
+
+    .divTableBody {
+        display: table-row-group;
+    }
+</style>
+    <div class="container-fluid main-app">
+        <form asp-action="mainAction">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-2 col-md-4">F-Stop</div>
+                        <div class="hidden-xs col-sm-2 col-md-4"><label id="FStopDisplay">F16</label></div>
+                        <div class="col-xs-8 col-sm-8 col-md-4"><input id="FStop" data-slider-id="FStop" asp-for="FStop" type="text" data-slider-handle="triangle" data-slider-min="0" data-slider-max="12" data-slider-step="1" data-slider-value="4" class="slider" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-2 col-md-4">Shutter Speed</div>
+                        <div class="hidden-xs col-sm-2 col-md-4"><label id="ShutterSpeedDisplay">1/125</label></div>
+                        <div class="col-xs-8 col-sm-8 col-md-4"><input id="ShutterSpeed" data-slider-id="ShutterSpeed" asp-for="ShutterSpeed" type="text" data-slider-handle="triangle" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0" class="slider" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-2 col-md-4">ISO</div>
+                        <div class="hiddex-xs col-sm-2 col-md-4"><label id="IsoDisplay">100</label></div>
+                        <div class="col-xs-8 col-sm-8 col-md-4"><input id="Iso" data-slider-id="Iso" asp-for="Iso" type="text" data-slider-handle="square" data-slider-min="0" data-slider-max="7" data-slider-step="1" data-slider-value="2" class="slider" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-2 col-md-4">Exposure Value</div>
+                        <div class="hidden-xs col-sm-2 col-md-4"></div>
+                        <div class="col-xs-8 col-sm-8 col-md-4"><label id="ev" asp-for="Ev" name="Ev" value="0" /></div>
+                    </div>
+                </div>
+            </div>
 
 
-<form asp-action="mainAction">
-<div>
-    <table>
-        @*<tr>
-            <td><label asp-for="SelectedLightLevel"></label></td>
-            @Html.DropDownListFor(model => model.SelectedLightLevel, Model.LightLevels, htmlAttributes: new { @class = "form-control" })
-        </tr>*@
+            @*
+            <table class="table" border="0">
 
-        <tr>
-            <td><label asp-for="ShutterSpeed">Shutter Speed</label></td>
-            <td><input asp-for="ShutterSpeed"/></td>
-        </tr>
+                <colgroup>
+                    <col class="col-xs-3 col-sm-3 col-md-2 col-lg-2" />
+                    <col class="hidden-xs hidden-sm col-md-1 col-lg-1" />
+                    <col class="col-xs-9" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td><label asp-for="FStop">F-Stop</label></td>
+                        <td><label id="FStopDisplay">F16</label></td>
+                        <td><input id="FStop" data-slider-id="FStop" asp-for="FStop" type="text" data-slider-handle="triangle" data-slider-min="0" data-slider-max="12" data-slider-step="1" data-slider-value="4" class="slider" /></td>
 
-        <tr>
-            <td><label asp-for="FStop">F-Stop</label></td>
-            <td><input asp-for="FStop" /></td>
-        </tr>
+                    </tr>
+                    <tr>
 
-        <tr>
-            <td><label asp-for="Iso">ISO</label></td>
-            <td><input asp-for="Iso"/></td>
-        </tr>
+                        <td><label asp-for="ShutterSpeed">Shutter Speed</label></td>
+                        <td><label id="ShutterSpeedDisplay">1/125</label></td>
+                        <td><input id="ShutterSpeed" data-slider-id="ShutterSpeed" asp-for="ShutterSpeed" type="text" data-slider-handle="triangle" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="0" class="slider" /></td>
 
-        <tr>
-            <td><lable asp-for="Ev">Exposure Value</lable></td>
-            <td><label id="ev" asp-for="Ev" name="Ev" value="0"/></td>
-        </tr>
-    </table>
-</div>
-</form>
+
+                    </tr>
+
+
+                    <tr>
+                        <td><label asp-for="Iso">ISO</label></td>
+                        <td><label id="IsoDisplay">100</label></td>
+                        <td><input id="Iso" data-slider-id="Iso" asp-for="Iso" type="text" data-slider-handle="square" data-slider-min="0" data-slider-max="7" data-slider-step="1" data-slider-value="2" class="slider" /></td>
+
+                    </tr>
+
+                    <tr>
+                        <td><label asp-for="Ev">Exposure Value</label></td>
+                        <td></td>
+                        <td><label id="ev" asp-for="Ev" name="Ev" value="0" /></td>
+                    </tr>
+                </tbody>
+            </table>
+                *@
+        </form>
+    </div>
+    <div style="width:25%" class="ads col-sm-2 right-side">Ad goes here</div>
+@*<footer></footer>*@
