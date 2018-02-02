@@ -1,30 +1,113 @@
 ﻿body {
+    background-image: url("../images/leather.JPG");
+    background-size:100%;
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Bentham', serif;
+    color:white;
+    font-size:17px;
 }
 
-label{
-    display: inline-block;
-    float: left;
-    //width: 100%;
+a{
+    color:yellow;
 }
 
+.NumberDisplay{
+    font-size: 24px;
+}
+   
+.copyright{
+    float:left;
+    bottom:0vh;
+}
+
+.ExposureDiv{
+    height: 19vh;
+}
 input{
     display: inline-block;
     float:right;
 }
 
+.row{
+    height: 50px;
+}
+
+#ev {
+    font-size: 30px;
+    color: gold;
+   font-family: 'Yellowtail', cursive;
+
+}
+
 .ads{
-    float:right;
     background:cadetblue;
-    width:25%;
-    height:100vh;
+    width:90%;
+    height:35vh;
+    bottom:10px;
+    position:absolute;
 }
 
 .main-app{
-    width:75%;
+    width:100%;
     float:left;
     margin-top: 50px;
+  
+}
+
+.title {
+    font-family: 'Herr Von Muellerhoff', cursive;   
+    font-size: 4.5vh;
+    line-height:5vh;
+}
+
+.navbar{
+    height: 6.0vh;
+    
+}
+
+.navbar-fixed-top{
+    background-color:black;
+}
+
+.navbar .navbar-nav > li > a {
+    color:white;
+    font-weight: bold;
+}
+
+
+.navbar-collapse{
+    background-color:Black;
+   
+}
+
+
+
+#GN{
+    width:45px;
+    text-align:left;
+    float: left;
+    color:black;
+}
+
+.slider-handle::before {
+    content: url("../images/knob.svg");
+}
+
+.slider-handle.custom::before {
+    content: url("../images/knob.svg");
+}
+
+#FStop .slider-handle {
+ 
+}
+
+#ShutterSpeed .slider-handle {
+ 
+}
+
+#Iso .slider-handle{
+
 }
 
 
@@ -73,9 +156,22 @@ input{
 }
 
 /* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
+@media (max-width: 360px) {
     /* Hide captions */
     .carousel-caption {
         display: none;
+    }
+    .body-content{
+    
+    }
+    #ev{
+        font-size:23px;
+    }
+    /*.title{font-size:45px;}*/
+}
+
+@media(max-width: 700){
+    .body-content {
+  
     }
 }

@@ -19,6 +19,7 @@ namespace CameraExposureComputer.Models
         public double FStop { get; set; } = 16;
         public int Iso { get; set; } = 100;
         public double Ev { get; set; } = 0;
+        public int GN { get; set; } = 0;
 
         public string FlashType { get; set; }
         public string FlashPower { get; set; }

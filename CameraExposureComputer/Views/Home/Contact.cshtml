@@ -1,21 +1,82 @@
 ﻿@model ContactViewModel
+<p>
+    For questions you may reach me at the following address:
+</p>
 
-@{
-    ViewData["Title"] = "Contact";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+<script language="JavaScript">
 
-<form asp-action="Contact" method="post">
+    var username = "stevescott517";
 
-    <label asp-for="Name"></label>
-    <input asp-for="Name" />
+    var hostname = "gmail.com";
 
-   <label asp-for="IsChecked"></label>
-    <input asp-for="IsChecked" />
+    var linktext = username + "@@" + hostname;
 
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-default" />
-    </div>
-</form>
+    document.write("<a href='" + "mail" + "to:" + username + "@@" + hostname + "'>" + linktext + "</a>");
+
+</script>
+
+@*
+        <asp:Panel ID="Panel0" runat="server" DefaultButton="btnSubmit">
+            <p style="font-size:24px;">Contact Form</p>
+            <p>
+                Your name:
+                <asp:RequiredFieldValidator id="RequiredFieldValidator0" runat="server" ErrorMessage "Invalid name!"
+                                            ControlToValidate="YourName" ValidationGroup="save" /><br />
+                <asp:TextBox id="YourName" runat="server" Width="50%" /><br />
+                Your email:
+                <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" ErrorMessage="Invalid email!"
+                                            ControlToValidate="YourEmail" ValidationGroup="save" /><br />
+                <asp:TextBox id="YourEmail" runat="server" Width="50%" /><br />
+                <asp:RegularExpressionValidator runat="server" id="RegularExpressionValidator23"
+                                                SetFocusOnError="true" Text="Example: username@gmail.com" ControlToValidate="YourEmail"
+                                                ValidationExpression="" Display="Dynamic"
+                                                ValidationGroup="save" /><br />
+                Subject:
+                <asp:RequiredFieldValidator id="RequiredFieldValidator2" runat="server" ErrorMessage="*"
+                                            ControlToValidate="YourSubject" ValidationGroup="save" /><br />
+                <asp:TextBox id="YourSubject" runat="server" Width="90%" /><br />
+                Your Question:
+                <asp:RequiredFieldValidator id="RequiredFieldValidator3" runat="server" ErrorMessage="*"
+                                            ControlToValidate="Comments" ValidationGroup="save" /><br />
+                <asp:TextBox id="Comments" runat="server"
+                             TextMode="MultiLine" Rows="10" Width="90%" />
+            </p>
+
+            <p>
+                <asp:Button id="btnSubmit" runat="server" Text="Send"
+                            OnClick="Button1_Click" validationgroup="save"/>
+            </p>
+            </asp:Panel>
+    <p>
+        <asp:Label id="DisplayMessage" runat="server" Visible="false" />
+    </p>
+
+*@
+
+
+
+
+
+
+
+
+
+@*@{
+        ViewData["Title"] = "Contact";
+    }
+    <h2>@ViewData["Title"]</h2>
+    <h3>@ViewData["Message"]</h3>
+
+    <form asp-action="Contact" method="post">
+
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+
+       <label asp-for="IsChecked"></label>
+        <input asp-for="IsChecked" />
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </form>*@
 
