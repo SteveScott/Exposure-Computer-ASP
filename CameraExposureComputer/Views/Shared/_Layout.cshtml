@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CamExCalc</title>
+    <meta name="description" content="A calculator to configure your camera to shoot in any lighting condition.  Perfect for vintage rangefinder cameras without a light meter." />
+    <meta name="keywords" content="camera, film, vintage camera, lomography, B and H photo, photo, adorama, kodak, holga, diana, fujifilm."/>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({
@@ -17,7 +19,7 @@
         <link href="~/css/bootstrap-slider.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bentham" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
     </environment>
     <environment exclude="Development">
@@ -26,6 +28,9 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link href="~/css/bootstrap-slider.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
     </environment>
 </head>
 <body>
@@ -63,8 +68,9 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/index.js" asp-append-version="true"></script>
-
         <script src="~/js/bootstrap-slider.min.js"></script>
+        @*<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>*@
+       @* <script src="~/js/bootstrap-slider.min.js"></script>*@
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
@@ -80,8 +86,9 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
+        <script src="~/js/bootstrap-slider.min.js"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
-        
+
     </environment>
 
     @RenderSection("Scripts", required: false)
