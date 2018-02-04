@@ -351,9 +351,13 @@ function FlashCalc() {
     flashDistMeter = roundTwoDecimal(flashDistMeter);
     flashDistFeet = flashDistMeter * 3.28084;
     flashDistFeet = roundTwoDecimal(flashDistFeet);
-    if (flashDistMeter.toString().length < 4) {
-        flashDistMeter = flashDistMeter.toString() + "0";
-    }
+    //if (flashDistMeter.toString().length < 4) {
+    //    flashDistMeter = flashDistMeter.toString() + '&nbsp ';
+    //} else if (flashDistMeter.toString().lenght < 3) {
+    //    flashDistMeter = flashDistMeter.toString() + '&nbsp &nbsp';
+    //} else if (flashDistMeter.toString().lenght < 2) {
+    //    flashDistMeter = flashDistMeter.toString() + '&nbsp &nbsp &nbsp';
+    //}
     $("#GNDisplayMeters").text(flashDistMeter + ' m');
     $("#GNDisplayFeet").text(flashDistFeet + ' ft');
     if (flashDistMeter == 0) {
