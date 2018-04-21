@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CameraExposureComputer", "CameraExposureComputer\CameraExposureComputer.csproj", "{6EAA6D87-D9EE-40FF-89DB-DD8F371D83DF}"
 EndProject
