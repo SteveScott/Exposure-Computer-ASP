@@ -4,6 +4,8 @@
     <UserSecretsId>fe5b6c94-fb34-4c7b-8462-aba2098b079e</UserSecretsId>
     <StartupObject>
     </StartupObject>
+    <PackageProjectUrl>https://www.camexcalc.com</PackageProjectUrl>
+    <PublishAot>True</PublishAot>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="jQuery" Version="3.7.1" />
