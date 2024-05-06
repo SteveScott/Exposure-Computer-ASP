@@ -11,6 +11,7 @@ on:
 
 env:
     AZURE_WEBAPP_NAME: CamExCalc
+    SOLUTION_NAME: CameraExposureComputer
     AZURE_WEBAPP_PACKAGE_PATH: '.'
 
 jobs:
@@ -30,14 +31,14 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/my-app
+        run: dotnet publish -c Release -o ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/${{env.SOLUTION_NAME}}
         #run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}\my-app
         #run: dotnet publish -c Release -o D:\Dropbox\1programming2\exposureComputer\Exposure_Computer_ASP\CameraExposureComputer\CameraExposureComputer 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: .net-app
-          path:  ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/my-app
+          name: ${{env.SOLUTION_NAME}}}
+          path:  ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/${{env.SOLUTION_NAME}}
           #path: D:\Dropbox\1programming2\exposureComputer\Exposure_Computer_ASP\CameraExposureComputer\CameraExposureComputer.sln
 
   deploy:
@@ -53,7 +54,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: .net-app
+          name: ${{env.SOLUTION_NAME}}
       
       - name: Login to Azure
         uses: azure/login@v1
@@ -68,5 +69,5 @@ jobs:
         with:
           app-name: ${{env.AZURE_WEBAPP_NAME}}
           slot-name: 'Production'
-          package: ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/my-app
+          package: ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/${{env.SOLUTION_NAME}}
           
