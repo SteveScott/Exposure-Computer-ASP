@@ -27,7 +27,6 @@ namespace CameraExposureComputer
      {
          // Add services to the container.
          services.AddControllers();
-         services.AddEndpointsApiExplorer();
      })
      .Configure((context, app) =>
      {
