@@ -8,18 +8,44 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
+
+
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
+
+
 namespace CameraExposureComputer
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+            var host = WebHost.CreateDefaultBuilder(args)
+     .ConfigureServices((context, services) =>
+     {
+         // Add services to the container.
+         services.AddControllers();
+         services.AddEndpointsApiExplorer();
+     })
+     .Configure((context, app) =>
+     {
+         var env = context.HostingEnvironment;
+         if (env.IsDevelopment())
+         {
+         }
+
+         app.UseHttpsRedirection();
+         app.UseHsts();
+         app.UseRouting();
+         app.UseAuthorization();
+         app.UseEndpoints(endpoints =>
+         {
+             endpoints.MapControllers();
+         });
+     })
+     .Build();
+        }
     }
 }
