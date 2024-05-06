@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-    AZURE_WEBAPP_NAME: CameraExposureComputer
+    AZURE_WEBAPP_NAME: CamExCalc
     AZURE_WEBAPP_PACKAGE_PATH: 'published'
 
 jobs:
