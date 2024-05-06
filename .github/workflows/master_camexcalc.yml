@@ -37,7 +37,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: ${{env.SOLUTION_NAME}}}
+          name: uploaded-artifact
           path:  ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/${{env.SOLUTION_NAME}}
           #path: D:\Dropbox\1programming2\exposureComputer\Exposure_Computer_ASP\CameraExposureComputer\CameraExposureComputer.sln
 
@@ -54,8 +54,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: ${{env.SOLUTION_NAME}}
-          path:  ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/${{env.SOLUTION_NAME}}
+          name: uploaded-artifact
+          #path:  ${{env.AZURE_WEBAPP_PACKAGE_PATH}}/${{env.SOLUTION_NAME}}
 
       - name: Login to Azure
         uses: azure/login@v1
