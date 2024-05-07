@@ -70,5 +70,6 @@ jobs:
         with:
           app-name: ${{env.AZURE_WEBAPP_NAME}}
           slot-name: 'Production'
+          #don't need package name. defaults to '.' which is the root of the repo
           
           
