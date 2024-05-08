@@ -15,36 +15,26 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 
 
-namespace CameraExposureComputer
+
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+var app = builder.Build();
+
+if (!app.Environment.IsDevelopment())
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-
-            var host = WebHost.CreateDefaultBuilder(args)
-     .ConfigureServices((context, services) =>
-     {
-         // Add services to the container.
-         services.AddControllers();
-     })
-     .Configure((context, app) =>
-     {
-         var env = context.HostingEnvironment;
-         if (env.IsDevelopment())
-         {
-         }
-
-         app.UseHttpsRedirection();
-         app.UseHsts();
-         app.UseRouting();
-         app.UseAuthorization();
-         app.UseEndpoints(endpoints =>
-         {
-             endpoints.MapControllers();
-         });
-     })
-     .Build();
-        }
-    }
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
+
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthorization();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();
+        
