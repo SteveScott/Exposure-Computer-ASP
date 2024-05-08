@@ -57,6 +57,13 @@ namespace CameraExposureComputer.Controllers
 
             return RedirectToAction("About");
         }
+        [HttpGet]
+        public IActionResult Privacy(PrivacyViewModel model)
+        {
+            ViewData["Message"] = "Your privacy page.";
+            var privacyModel = new PrivacyViewModel();
+            return View(privacyModel);
+        }
 
         public IActionResult Error()
         {
