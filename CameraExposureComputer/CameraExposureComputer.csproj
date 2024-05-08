@@ -5,7 +5,7 @@
     <StartupObject>
     </StartupObject>
     <PackageProjectUrl>https://www.camexcalc.com</PackageProjectUrl>
-    <PublishAot>true</PublishAot>
+    <PublishAot>false</PublishAot>
     <PublishTrimmed>false</PublishTrimmed>
   </PropertyGroup>
   <ItemGroup>
