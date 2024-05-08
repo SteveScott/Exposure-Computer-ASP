@@ -19,6 +19,8 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+//MvcServiceCollectionExtensions.AddControllersWithViews(builder.Services);
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -34,7 +36,8 @@ app.UseRouting();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
 
 app.Run();
         
