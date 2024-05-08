@@ -5,7 +5,8 @@
     <StartupObject>
     </StartupObject>
     <PackageProjectUrl>https://www.camexcalc.com</PackageProjectUrl>
-    <PublishAot>True</PublishAot>
+    <PublishAot>true</PublishAot>
+    <PublishTrimmed>false</PublishTrimmed>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="jQuery" Version="3.7.1" />
