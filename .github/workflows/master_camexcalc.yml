@@ -61,7 +61,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-
     steps:
       - name: Login to Azure
         uses: azure/login@v2.2.0
